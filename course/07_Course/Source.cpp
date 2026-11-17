@@ -63,6 +63,20 @@ public:
 			Building::NO_RESIDENTIAL_BUILDINGS += 1;
 	}
 
+	//move constructor
+	Building(Building&& b) {
+
+		this->setTenants(b.tenants, b.noOfTenants);
+		this->isResidential = b.isResidential;
+		this->noOfFloors = b.noOfFloors;
+		if (this->isResidential)
+			Building::NO_RESIDENTIAL_BUILDINGS += 1;
+
+		delete[] b.tenants;
+		b.tenants = nullptr;
+		b.noOfTenants = 0;
+	}
+
 };
 
 //requires COPY CTOR
