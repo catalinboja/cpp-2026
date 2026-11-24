@@ -144,6 +144,10 @@ public:
 		}
 	}
 
+	RestaurantTable(RestaurantTable& r) {
+
+	}
+
 };
 
 int RestaurantTable::TOTAL_AVAILABLE_TABLES = 0;
